@@ -19,7 +19,7 @@ images.forEach((object) => {
   let li = document.createElement("li");
   li.insertAdjacentHTML(
     "beforeend",
-    `<img src="${object.url}" alt="${object.alt}" width="400px" height="400px">`
+    `<img class="image" src="${object.url}" alt="${object.alt}" width="400px" height="400px">`
   );
   gallery.append(li);
 
