@@ -1,9 +1,14 @@
 const input = document.querySelector("#validation-input");
+const Length = input.dataset.length;
 
-input.addEventListener("blur", () => {
-  if (input.value.length == input.dataset.length) {
-    input.classList = "valid";
+function validate() {
+  if (input.value.length == Length) {
+    input.classList.remove("invalid");
+    input.classList.add("valid");
   } else {
-    input.classList = "invalid";
+    input.classList.remove("valid");
+    input.classList.add("invalid");
   }
-});
+}
+
+input.addEventListener("blur", validate);

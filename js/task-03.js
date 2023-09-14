@@ -15,13 +15,18 @@ const images = [
 
 const gallery = document.querySelector(`.gallery`);
 
-images.forEach((object) => {
-  let li = document.createElement("li");
-  li.insertAdjacentHTML(
-    "beforeend",
-    `<img class="image" src="${object.url}" alt="${object.alt}" width="400px" height="400px">`
-  );
-  gallery.append(li);
+const markup = images
+  .map(
+    (image) =>
+      `<li><img class="picture" src=${image.url} width ='400' alt='${image.alt}'></img></li>`
+  )
+  .join("");
 
-  console.log(li);
-});
+gallery.insertAdjacentHTML("beforeend", markup);
+const pictures = document.querySelectorAll(".picture");
+
+gallery.style.display = "flex";
+gallery.style.flexWrap = "column-reverse";
+gallery.style.listStyle = "none";
+gallery.style.gap = "20px";
+gallery.style.justifyContent = "center";
